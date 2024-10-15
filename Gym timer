@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 48px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="countdown">60</h1>
+
+    <script>
+        let countdownElement = document.getElementById('countdown');
+        let timeLeft = 60;
+
+        // Función para iniciar la cuenta regresiva
+        function startCountdown() {
+            let timer = setInterval(function() {
+                timeLeft--;
+                countdownElement.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    countdownElement.textContent = "¡Descanso terminado!";
+                }
+            }, 1000);
+        }
+
+        // Iniciar la cuenta regresiva cuando el usuario toque la pantalla o cargue la página
+        window.onload = startCountdown;
+        window.addEventListener('click', startCountdown);
+    </script>
+</body>
+</html>
